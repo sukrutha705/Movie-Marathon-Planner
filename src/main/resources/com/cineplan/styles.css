@@ -1,0 +1,358 @@
+/* CinePlan Dark Netflix Theme Stylesheet */
+
+.root {
+    -fx-background-color: #141414;
+    -fx-font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+    -text-primary: #FFFFFF;
+    -text-secondary: #AAAAAA;
+    -netflix-red: #E50914;
+    -netflix-red-hover: #B81D24;
+    -bg-card: #1F1F1F;
+    -bg-sidebar: #0A0A0A;
+}
+
+/* Scroll Pane styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+.scroll-pane .scroll-bar:vertical .thumb,
+.scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color: #333333;
+    -fx-background-radius: 4px;
+}
+.scroll-pane .scroll-bar:vertical .thumb:hover,
+.scroll-pane .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #E50914;
+}
+
+/* Sidebar navigation styling */
+.sidebar {
+    -fx-background-color: -bg-sidebar;
+    -fx-padding: 20px 10px;
+    -fx-spacing: 12px;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 15px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-pref-width: 190px;
+}
+
+.nav-button:hover {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+}
+
+.nav-button-active {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: transparent transparent transparent -netflix-red;
+    -fx-border-width: 0 0 0 4px;
+}
+
+/* Standard Labels and Headings */
+.label {
+    -fx-text-fill: -text-primary;
+}
+
+.label-secondary {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 12px;
+}
+
+.heading-1 {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-primary;
+}
+
+.heading-2 {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-primary;
+}
+
+.app-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: 900;
+    -fx-text-fill: -netflix-red;
+    -fx-padding: 10px 0 20px 10px;
+}
+
+/* Input elements */
+.text-field {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #666666;
+    -fx-background-radius: 4px;
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 4px;
+    -fx-font-size: 14px;
+}
+.text-field:focused {
+    -fx-border-color: -netflix-red;
+    -fx-background-color: #333333;
+}
+
+.combo-box {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-padding: 5px;
+    -fx-font-size: 13px;
+}
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-background-color: #2B2B2B;
+}
+.combo-box .list-cell:hover {
+    -fx-background-color: #333333;
+}
+.combo-box:focused {
+    -fx-border-color: -netflix-red;
+    -fx-border-radius: 4px;
+}
+
+.check-box {
+    -fx-text-fill: -text-primary;
+    -fx-font-size: 13px;
+}
+.check-box .box {
+    -fx-background-color: #2B2B2B;
+    -fx-background-radius: 2px;
+}
+.check-box:selected .mark {
+    -fx-background-color: -netflix-red;
+}
+
+/* Buttons */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.button-primary {
+    -fx-background-color: -netflix-red;
+    -fx-text-fill: white;
+}
+.button-primary:hover {
+    -fx-background-color: -netflix-red-hover;
+}
+
+.button-secondary {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+}
+.button-secondary:hover {
+    -fx-background-color: #444444;
+}
+
+.button-danger {
+    -fx-background-color: #B81D24;
+    -fx-text-fill: white;
+}
+.button-danger:hover {
+    -fx-background-color: #901419;
+}
+
+/* Movie Cards */
+.movie-card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-spacing: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 4);
+    -fx-cursor: hand;
+    -fx-border-color: #2D2D2D;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+}
+.movie-card:hover {
+    -fx-background-color: #2A2A2A;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-border-color: -netflix-red;
+    -fx-effect: dropshadow(three-pass-box, rgba(229,9,20,0.45), 15, 0, 0, 0);
+}
+
+.movie-poster-placeholder {
+    -fx-background-color: #333333;
+    -fx-background-radius: 4px;
+    -fx-alignment: CENTER;
+}
+
+.badge {
+    -fx-background-color: #E50914;
+    -fx-text-fill: white;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.badge-rating {
+    -fx-background-color: #FFA000;
+    -fx-text-fill: black;
+}
+
+/* TableView styles */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-base: #141414;
+    -fx-control-inner-background: #1F1F1F;
+    -fx-table-cell-border-color: #2D2D2D;
+}
+.table-view .column-header-background {
+    -fx-background-color: -netflix-red;
+}
+.table-view .column-header {
+    -fx-background-color: -netflix-red;
+    -fx-size: 35px;
+}
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+.table-view .table-row-cell {
+    -fx-background-color: #1F1F1F;
+    -fx-text-fill: white;
+    -fx-cell-size: 40px;
+}
+.table-view .table-row-cell:filled:selected {
+    -fx-background-color: #333333;
+}
+.table-view .table-row-cell:filled:hover {
+    -fx-background-color: #2A2A2A;
+}
+
+/* Quiz Style */
+.quiz-card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 12px;
+    -fx-padding: 30px;
+    -fx-spacing: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 15, 0, 0, 6);
+    -fx-alignment: CENTER;
+}
+
+.quiz-option-button {
+    -fx-background-color: #2B2B2B;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-padding: 15px 30px;
+    -fx-pref-width: 250px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER;
+}
+.quiz-option-button:hover {
+    -fx-background-color: -netflix-red;
+    -fx-scale-x: 1.02;
+}
+
+/* Achievement Badge Grid */
+.achievement-card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 8, 0, 0, 3);
+}
+.achievement-card-locked {
+    -fx-opacity: 0.4;
+}
+.achievement-badge-circle {
+    -fx-background-color: -netflix-red;
+    -fx-background-radius: 50%;
+    -fx-min-width: 45px;
+    -fx-min-height: 45px;
+    -fx-max-width: 45px;
+    -fx-max-height: 45px;
+    -fx-alignment: CENTER;
+}
+.achievement-badge-circle-locked {
+    -fx-background-color: #555555;
+}
+
+/* Analytics dashboard widgets */
+.analytics-card {
+    -fx-background-color: -bg-card;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+    -fx-spacing: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 4);
+    -fx-alignment: CENTER;
+}
+.analytics-number {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -netflix-red;
+}
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-primary;
+    -fx-padding: 0 0 10px 0;
+}
+.chart-pie-label {
+    -fx-fill: white;
+}
+.chart-legend {
+    -fx-background-color: transparent;
+}
+.chart-legend-item {
+    -fx-text-fill: white;
+}
+.axis {
+    -fx-tick-label-fill: white;
+}
+.axis-label {
+    -fx-text-fill: white;
+}
+.chart-bar {
+    -fx-bar-fill: -netflix-red;
+}
+
+/* Language Checkboxes */
+.lang-checkbox {
+    -fx-text-fill: #CCCCCC;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+.lang-checkbox .box {
+    -fx-background-color: #2B2B2B;
+    -fx-background-radius: 3px;
+    -fx-border-color: #555555;
+    -fx-border-radius: 3px;
+}
+.lang-checkbox:selected .box {
+    -fx-background-color: #E50914;
+    -fx-border-color: #E50914;
+}
+.lang-checkbox:selected .mark {
+    -fx-background-color: white;
+}
+.lang-checkbox:hover {
+    -fx-text-fill: white;
+}

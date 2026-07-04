@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<HBox spacing="20.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cineplan.controller.MovieManagerController">
+   <children>
+      <!-- Left side: Search, Filter, and Movie List Table -->
+      <VBox spacing="15.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Label styleClass="heading-1" text="Movie Database Manager" />
+
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+               <children>
+                  <TextField fx:id="txtSearch" prefHeight="35.0" prefWidth="230.0" promptText="Search by title..." styleClass="text-field" />
+                  <ComboBox fx:id="comboFilterGenre" prefHeight="35.0" prefWidth="130.0" styleClass="combo-box" />
+                  <ComboBox fx:id="comboFilterLanguage" prefHeight="35.0" prefWidth="120.0" styleClass="combo-box" />
+                  <Button mnemonicParsing="false" onAction="#handleSearch" styleClass="button, button-primary" text="Search" />
+                  <Button mnemonicParsing="false" onAction="#handleResetSearch" styleClass="button, button-secondary" text="Reset" />
+               </children>
+            </HBox>
+
+            <TableView fx:id="tableMovies" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
+                <TableColumn fx:id="colTitle" prefWidth="160.0" text="Title" />
+                <TableColumn fx:id="colGenre" prefWidth="80.0" text="Genre" />
+                <TableColumn fx:id="colLanguage" prefWidth="80.0" text="Language" />
+                <TableColumn fx:id="colRuntime" prefWidth="65.0" text="Runtime" />
+                <TableColumn fx:id="colRating" prefWidth="60.0" text="Rating" />
+                <TableColumn fx:id="colScore" prefWidth="55.0" text="Score" />
+              </columns>
+            </TableView>
+
+            <HBox spacing="15.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleDeleteSelected" styleClass="button, button-danger" text="Delete Selected Movie" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Right side: Add / Edit Form -->
+      <VBox spacing="15.0" prefWidth="390.0" style="-fx-background-color: #1F1F1F; -fx-padding: 20px; -fx-background-radius: 8px;">
+         <children>
+            <Label fx:id="lblFormTitle" styleClass="heading-2" text="Add New Movie" />
+
+            <GridPane vgap="12.0" hgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="260.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Title:" />
+                  <TextField fx:id="txtTitle" promptText="Enter movie title" styleClass="text-field" GridPane.columnIndex="1" />
+
+                  <Label text="Genre:" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="comboGenre" prefWidth="260.0" styleClass="combo-box" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                  <Label text="Language:" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboLanguage" prefWidth="260.0" styleClass="combo-box" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                  <Label text="Runtime (min):" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtRuntime" promptText="e.g. 120" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                  <Label text="Rating (0-10):" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtRating" promptText="e.g. 8.5" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                  <Label text="Score (1-10):" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtScore" promptText="e.g. 9" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                  <Label text="Poster URL:" GridPane.rowIndex="6" />
+                  <TextField fx:id="txtPosterUrl" promptText="Unsplash or direct image URL" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                  <Label text="Watch URL:" GridPane.rowIndex="7" />
+                  <TextField fx:id="txtWatchUrl" promptText="Streaming / YouTube / Archive.org link" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+                  <Label text="Description:" GridPane.rowIndex="8" />
+                  <TextArea fx:id="txtDescription" prefHeight="80.0" promptText="Brief synopsis..." style="-fx-control-inner-background: #2B2B2B; -fx-text-fill: white; -fx-background-radius: 4px;" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+               </children>
+            </GridPane>
+
+            <HBox spacing="15.0" alignment="CENTER_RIGHT" style="-fx-padding: 10px 0 0 0;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleClearForm" styleClass="button, button-secondary" text="Clear" />
+                  <Button mnemonicParsing="false" onAction="#handleSaveMovie" styleClass="button, button-primary" text="Save Movie" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

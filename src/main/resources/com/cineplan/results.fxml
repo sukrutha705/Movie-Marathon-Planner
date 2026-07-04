@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="20.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cineplan.controller.ResultsController">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <children>
+            <VBox HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="heading-1" text="Marathon Plan Generated!" />
+                  <Label fx:id="lblSubHeader" styleClass="label-secondary" text="Here is your optimal movie schedule based on your settings." />
+               </children>
+            </VBox>
+            <HBox spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleSavePlan" styleClass="button, button-secondary" text="Save Marathon" />
+                  <Button mnemonicParsing="false" onAction="#handleExportPDF" styleClass="button, button-primary" text="Export PDF Report" />
+                  <Button mnemonicParsing="false" onAction="#handleBack" styleClass="button, button-secondary" text="Back" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+
+      <!-- Marathon Stats Banner -->
+      <HBox alignment="CENTER" spacing="40.0" style="-fx-background-color: #1F1F1F; -fx-padding: 20px; -fx-background-radius: 8px;">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="TOTAL RUNTIME" styleClass="label-secondary" />
+                  <Label fx:id="lblTotalRuntime" text="0 min" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="ENTERTAINMENT SCORE" styleClass="label-secondary" />
+                  <Label fx:id="lblTotalScore" text="0/0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #E50914;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="MOOD THEME" styleClass="label-secondary" />
+                  <Label fx:id="lblMood" text="Standard" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="MARATHON CLASS" styleClass="label-secondary" />
+                  <Label fx:id="lblRatingClass" style="-fx-font-size: 20px; -fx-font-weight: 900;" text="Cinema God" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <!-- Movies List Grid -->
+      <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+         <content>
+            <FlowPane fx:id="flowMovies" hgap="20.0" vgap="20.0" style="-fx-padding: 10px;" />
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>

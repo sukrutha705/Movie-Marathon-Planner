@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="25.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cineplan.controller.QuizController">
+   <children>
+      <VBox alignment="CENTER" spacing="5.0">
+         <children>
+            <Label styleClass="heading-1" text="Movie Personality Quiz" />
+            <Label styleClass="label-secondary" text="Discover your movie archetype and tailor your marathon recommendations." />
+         </children>
+      </VBox>
+      
+      <!-- Quiz Card Container -->
+      <VBox fx:id="cardQuiz" alignment="CENTER" maxWidth="500.0" prefHeight="350.0" styleClass="quiz-card">
+         <children>
+            <Label fx:id="lblQuestionNum" styleClass="label-secondary" text="Question 1 of 4" style="-fx-font-weight: bold; -fx-text-fill: #E50914;" />
+            <Label fx:id="lblQuestionText" styleClass="heading-2" text="Coffee or Tea?" textAlignment="CENTER" wrapText="true" style="-fx-font-size: 20px;" />
+            
+            <VBox alignment="CENTER" spacing="12.0" style="-fx-padding: 15px 0 0 0;">
+               <children>
+                  <Button fx:id="btnOptionA" mnemonicParsing="false" onAction="#handleOptionA" styleClass="quiz-option-button" text="Option A" />
+                  <Button fx:id="btnOptionB" mnemonicParsing="false" onAction="#handleOptionB" styleClass="quiz-option-button" text="Option B" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+
+      <!-- Quiz Result Card (Hidden by default, shown at end) -->
+      <VBox fx:id="cardResult" alignment="CENTER" maxWidth="500.0" prefHeight="350.0" styleClass="quiz-card" visible="false" managed="false">
+         <children>
+            <Label styleClass="label-secondary" text="YOUR MOVIE ARCHETYPE" style="-fx-font-weight: bold; -fx-text-fill: #E50914;" />
+            <Label fx:id="lblArchetypeTitle" styleClass="heading-1" text="Sci-Fi Explorer" style="-fx-font-size: 24px;" />
+            <Label fx:id="lblArchetypeDesc" styleClass="label-secondary" text="Description of archetype" textAlignment="CENTER" wrapText="true" style="-fx-font-size: 13px;" />
+            
+            <Label fx:id="lblFavGenreInfo" text="Recommended Genre: Sci-Fi" style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-padding: 10px 0;" />
+            
+            <Button mnemonicParsing="false" onAction="#handleApplyRecommendation" styleClass="button, button-primary" text="Apply Preferences &amp; Start" prefWidth="250.0" />
+            <Button mnemonicParsing="false" onAction="#handleRetakeQuiz" styleClass="button, button-secondary" text="Retake Quiz" prefWidth="250.0" style="-fx-margin-top: 10px;" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

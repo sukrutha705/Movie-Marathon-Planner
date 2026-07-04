@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox spacing="20.0" styleClass="root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cineplan.controller.SavedMarathonsController">
+   <children>
+      <!-- Left pane: List of Saved Marathons -->
+      <VBox spacing="15.0" prefWidth="380.0">
+         <children>
+            <Label styleClass="heading-1" text="Saved Marathons" />
+            <Label styleClass="label-secondary" text="View or manage your saved marathon schedules." />
+            
+            <ListView fx:id="listMarathons" VBox.vgrow="ALWAYS" style="-fx-background-color: #1F1F1F; -fx-control-inner-background: #1F1F1F; -fx-text-fill: white;" />
+            
+            <HBox spacing="15.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleDeleteMarathon" styleClass="button, button-danger" text="Delete Selected Plan" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+
+      <!-- Right pane: Marathon details -->
+      <VBox spacing="20.0" HBox.hgrow="ALWAYS" style="-fx-background-color: #1F1F1F; -fx-padding: 20px; -fx-background-radius: 8px;">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="lblMarathonName" styleClass="heading-2" text="Select a Marathon" />
+                        <Label fx:id="lblMarathonMeta" styleClass="label-secondary" text="Select a saved marathon from the left to view details." />
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnExportPDF" mnemonicParsing="false" onAction="#handleExportPDF" styleClass="button, button-primary" text="Export PDF" visible="false" />
+               </children>
+            </HBox>
+            
+            <TableView fx:id="tableMovies" VBox.vgrow="ALWAYS" visible="false">
+              <columns>
+                <TableColumn fx:id="colTitle" prefWidth="250.0" text="Title" />
+                <TableColumn fx:id="colGenre" prefWidth="120.0" text="Genre" />
+                <TableColumn fx:id="colRuntime" prefWidth="90.0" text="Runtime" />
+                <TableColumn fx:id="colRating" prefWidth="80.0" text="Rating" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</HBox>
