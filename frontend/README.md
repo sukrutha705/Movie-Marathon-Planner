@@ -1,73 +1,286 @@
-# React + TypeScript + Vite
+# 🎬 CinePlan - Movie Marathon Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A JavaFX-based Movie Marathon Planner that uses the **0/1 Knapsack Algorithm** to recommend the best combination of movies within a user's available time while maximizing entertainment value.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📖 Overview
 
-## React Compiler
+CinePlan is a Design and Analysis of Algorithms (DAA) project that demonstrates the practical application of the **0/1 Knapsack Algorithm** in solving a real-world optimization problem.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Instead of manually deciding which movies to watch, users simply specify the amount of free time they have, and CinePlan intelligently recommends the optimal set of movies that maximizes entertainment while staying within the available time.
 
-## Expanding the ESLint configuration
+The application combines algorithmic optimization, database management, API integration, and a modern JavaFX user interface.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ✨ Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- 🎥 Smart Movie Recommendation using the 0/1 Knapsack Algorithm
+- ⏱️ Optimize movie selection based on available time
+- ⭐ Uses entertainment score and IMDb ratings for intelligent recommendations
+- 📊 Analytics Dashboard
+- 🏆 Achievement Tracking
+- 🔍 Movie Discovery
+- 📄 Export marathon details to PDF
+- 💾 SQLite database integration
+- 🌐 TMDb API integration for movie information
+- 🎨 Modern JavaFX User Interface
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+# 🧠 Algorithm Used
+
+## 0/1 Knapsack Algorithm
+
+The core functionality of CinePlan is powered by the **0/1 Knapsack Dynamic Programming Algorithm**.
+
+### Problem Mapping
+
+| Knapsack Problem | CinePlan |
+|-----------------|----------|
+| Weight | Movie Runtime |
+| Value | Entertainment Score |
+| Capacity | User's Available Time |
+| Item | Movie |
+
+The objective is to maximize the total entertainment score while ensuring the combined runtime does not exceed the user's available time.
+
+### Additional Optimizations
+
+When multiple movie combinations produce the same entertainment score, CinePlan further optimizes by:
+
+- Higher cumulative IMDb rating
+- Lower total runtime
+
+This makes recommendations more practical and enjoyable.
+
+---
+
+# 🏗️ Project Architecture
+
+```
+User
+   │
+   ▼
+JavaFX UI
+   │
+   ▼
+Controllers
+   │
+   ▼
+Services
+   │
+   ▼
+Knapsack Optimizer
+   │
+   ▼
+SQLite Database
+        │
+        ▼
+     TMDb API
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 🛠️ Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Programming Language
+
+- Java 21
+
+### Frameworks
+
+- JavaFX
+
+### Database
+
+- SQLite
+
+### Build Tool
+
+- Maven
+
+### External API
+
+- TMDb (The Movie Database)
+
+### Libraries
+
+- SQLite JDBC
+- OpenPDF
+- JavaFX Controls
+- JavaFX FXML
+
+---
+
+# 📂 Project Structure
+
 ```
+src
+│
+├── main
+│   ├── java
+│   │   └── com.cineplan
+│   │       ├── algorithm
+│   │       ├── controller
+│   │       ├── database
+│   │       ├── model
+│   │       ├── repository
+│   │       ├── service
+│   │       └── utils
+│   │
+│   └── resources
+│
+├── pom.xml
+└── cineplan.db
+```
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+- Java JDK 21
+- Maven
+- Git
+
+---
+
+## Clone Repository
+
+```bash
+git clone https://github.com/your-username/cineplan.git
+```
+
+---
+
+## Navigate to Project
+
+```bash
+cd cineplan
+```
+
+---
+
+## Build Project
+
+```bash
+mvn clean install
+```
+
+---
+
+## Run
+
+```bash
+mvn javafx:run
+```
+
+---
+
+# 📊 Dynamic Programming Approach
+
+The algorithm creates an optimized Dynamic Programming table where:
+
+- Rows represent movies
+- Columns represent available time
+- Each state stores:
+  - Entertainment Score
+  - IMDb Rating
+  - Runtime
+
+After filling the DP table, the algorithm backtracks to determine the optimal movie selection.
+
+### Time Complexity
+
+```
+O(n × W)
+```
+
+Where
+
+- **n** = Number of movies
+- **W** = Available viewing time
+
+### Space Complexity
+
+```
+O(n × W)
+```
+
+---
+
+# 📸 Screenshots
+
+Add screenshots of:
+
+- Home Screen
+- Movie Discovery
+- Dashboard
+- Movie Recommendation
+- Analytics
+- Achievement Page
+
+Example:
+
+```
+screenshots/
+    home.png
+    dashboard.png
+    optimizer.png
+    analytics.png
+```
+
+---
+
+# 🎯 Learning Outcomes
+
+This project demonstrates practical implementation of:
+
+- Dynamic Programming
+- 0/1 Knapsack Algorithm
+- Algorithm Optimization
+- JavaFX Application Development
+- MVC Architecture
+- SQLite Database Integration
+- API Integration
+- Software Engineering Principles
+
+---
+
+# 👨‍💻 Contributors
+
+- Sukrutha K
+- NeuralNexus Team
+
+---
+
+# 📚 Future Improvements
+
+- Personalized AI-based recommendations
+- Multiple optimization strategies
+- Genre balancing
+- Collaborative watch planning
+- Cloud database support
+- User authentication
+- Streaming platform integration
+- Recommendation history
+- Watchlist synchronization
+
+---
+
+# 📜 License
+
+This project was developed as part of a **Design and Analysis of Algorithms (DAA)** academic project.
+
+Feel free to fork, modify, and learn from it for educational purposes.
+
+---
+
+# ⭐ If you found this project useful
+
+Give the repository a ⭐ on GitHub!
+
+It helps support the project and motivates future improvements.
